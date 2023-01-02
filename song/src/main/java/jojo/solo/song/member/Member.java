@@ -1,12 +1,18 @@
 package jojo.solo.song.member;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Builder
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +22,7 @@ public class Member {
     private String id;
 
     @Column(nullable = false)
-    private String nickName;
+    private String nickname;
 
     @Column
     private String password;
@@ -31,6 +37,6 @@ public class Member {
     private LocalDateTime createdAt;
 
     @Column
-    private Enum status;
+    private MemberStatus status;
 
 }
