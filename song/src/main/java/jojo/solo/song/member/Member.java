@@ -30,4 +30,7 @@ public class Member {
     @Column
     private LocalDateTime createdAt;
 
+    @Column
+    private Enum status;
+
 }
