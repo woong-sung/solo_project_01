@@ -9,8 +9,9 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberRepository memberRepository;
+    private final MemberMapper memberMapper;
 
-    public Member save(MemberDto.SignIn signIn){
+    public MemberDto.Response save(MemberDto.SignIn signIn){
         Member member = Member.builder()
                 .id(signIn.getId())
                 .nickname(signIn.getNickname())
@@ -21,7 +22,8 @@ public class MemberService {
                 .status(MemberStatus.REGISTERED)
                 .createdAt(LocalDateTime.now())
                 .build();
+        memberRepository.save(member);
 
-        return memberRepository.save(member);
+        return memberMapper.memberToMemberResponse(member);
     }
 }
