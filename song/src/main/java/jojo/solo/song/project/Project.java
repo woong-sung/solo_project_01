@@ -58,6 +58,6 @@ public class Project {
     private LocalDateTime createdAt;
 
     // todo: 좋아요, 팔로우 생성 필요
-    // todo: 댓글 연관관계 설정 필요
+    // todo: 댓글, 작성자 연관관계 설정 필요
     // todo: projectMusic 연관관계 설정 필요
 }
