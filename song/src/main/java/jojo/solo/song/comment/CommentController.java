@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class CommentController {
     private final CommentService commentService;
-    @PostMapping
+
+    @PostMapping("/{project-id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public CommentDto.Response post(@RequestBody CommentDto.Post postDto) {
-        return commentService.save(postDto);
+    public CommentDto.Response post(@PathVariable("project-id") Long projectId,
+                                    @RequestBody CommentDto.Post postDto) {
+        return commentService.save(projectId, postDto);
     }
 }

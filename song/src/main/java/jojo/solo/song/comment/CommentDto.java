@@ -20,6 +20,7 @@ public class CommentDto {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Response{
+        private long projectId;
         private String content;
         private LocalDateTime createdAt;
         // todo: 작성자 추가 필요
