@@ -9,4 +9,12 @@ import javax.transaction.Transactional;
 @Transactional
 @RequiredArgsConstructor
 public class CommentService {
+    private final CommentRepository commentRepository;
+    private final CommentMapper commentMapper;
+
+    public CommentDto.Response save(CommentDto.Post post){
+        Comment comment = commentMapper.postToComment(post);
+        commentRepository.save(comment);
+        return  commentMapper.commentToResponse(comment);
+    }
 }

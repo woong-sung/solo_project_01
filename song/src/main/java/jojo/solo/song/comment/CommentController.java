@@ -1,11 +1,18 @@
 package jojo.solo.song.comment;
 
+import jojo.solo.song.project.ProjectDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/comments")
 @RequiredArgsConstructor
 public class CommentController {
+    private final CommentService commentService;
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public CommentDto.Response post(@RequestBody CommentDto.Post postDto) {
+        return commentService.save(postDto);
+    }
 }
