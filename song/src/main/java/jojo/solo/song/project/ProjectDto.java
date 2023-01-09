@@ -17,7 +17,6 @@ public class ProjectDto {
     @AllArgsConstructor
     @NoArgsConstructor
     static class Post{
-        private String imgUrl;
         private String title;
         private String genre;
         private String workSession;
@@ -25,10 +24,9 @@ public class ProjectDto {
         private String lyrics;
         private String referenceUrl;
         private int bpm;
-        private String key;
+        private String pitch;
         private String rhythm;
         private String content;
-        private String audioFile;
     }
 
     @Getter
@@ -44,7 +42,7 @@ public class ProjectDto {
         private String lyrics;
         private String referenceUrl;
         private int bpm;
-        private String key;
+        private String pitch;
         private String rhythm;
         private String content;
         private String audioFile;

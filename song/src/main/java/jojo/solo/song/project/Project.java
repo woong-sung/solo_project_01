@@ -1,5 +1,6 @@
 package jojo.solo.song.project;
 
+import jojo.solo.song.comment.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -7,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Builder
@@ -42,8 +45,9 @@ public class Project {
     @Column
     private int bpm;
 
+    // key가 예약어라 못쓴다.
     @Column
-    private String key;
+    private String pitch;
 
     @Column
     private String rhythm;
@@ -57,7 +61,10 @@ public class Project {
     @Column
     private LocalDateTime createdAt;
 
+    @OneToMany(mappedBy = "project", cascade = CascadeType.REMOVE)
+    private List<Comment> comments = new ArrayList<>();
+
     // todo: 좋아요, 팔로우 생성 필요
-    // todo: 댓글, 작성자 연관관계 설정 필요
+    // todo: 작성자 연관관계 설정 필요
     // todo: projectMusic 연관관계 설정 필요
 }

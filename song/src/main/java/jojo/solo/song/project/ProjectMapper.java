@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public interface ProjectMapper {
     default Project projectDtoToProject(ProjectDto.Post post){
         return Project.builder()
-                .imgUrl(post.getImgUrl())
+                .imgUrl("이미지 url")
                 .title(post.getTitle())
                 .genre(post.getGenre())
                 .workSession(post.getWorkSession())
@@ -16,14 +16,14 @@ public interface ProjectMapper {
                 .lyrics(post.getLyrics())
                 .referenceUrl(post.getReferenceUrl())
                 .bpm(post.getBpm())
-                .key(post.getKey())
+                .pitch(post.getPitch())
                 .rhythm(post.getRhythm())
                 .content(post.getContent())
-                .audioFile(post.getAudioFile())
                 .createdAt(LocalDateTime.now())
                 // todo: 좋아요, 팔로우 생성 필요
                 // todo: 댓글, 작성자 연관관계 설정 필요
                 // todo: projectMusic 연관관계 설정 필요
+                // 이미지와 오디오파일 연결 필요
                 .build();
     }
 
@@ -37,7 +37,7 @@ public interface ProjectMapper {
                 .lyrics(project.getLyrics())
                 .referenceUrl(project.getReferenceUrl())
                 .bpm(project.getBpm())
-                .key(project.getKey())
+                .pitch(project.getPitch())
                 .rhythm(project.getRhythm())
                 .content(project.getContent())
                 .audioFile(project.getAudioFile())
