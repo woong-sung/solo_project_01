@@ -15,4 +15,10 @@ public class MemberController {
     public MemberDto.Response signIn(@RequestBody MemberDto.SignIn signIn) {
         return memberService.save(signIn);
     }
+
+    @PatchMapping("/{member-id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void withdraw(@PathVariable("member-id") long memberId) {
+        memberService.withdraw(memberId);
+    }
 }

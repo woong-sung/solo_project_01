@@ -37,6 +37,16 @@ public class Member {
     private LocalDateTime createdAt;
 
     @Column
+    private LocalDateTime lastLogin;
+
+    @Column
     private MemberStatus status;
 
+    public void changeStatus(MemberStatus memberStatus){
+        this.status = memberStatus;
+    }
+
+    public void changeLoginTime(LocalDateTime localDateTime){
+        this.lastLogin = localDateTime;
+    }
 }
