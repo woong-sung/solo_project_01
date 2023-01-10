@@ -2,8 +2,10 @@ package jojo.solo.song.project;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -21,4 +23,18 @@ public class ProjectService {
 
         return projectMapper.projectToProjectResponse(project);
     }
+
+    public Project findById(long projectId) {
+        Optional<Project> optionalProject = projectRepository.findById(projectId);
+        if (optionalProject.isPresent()){
+            return optionalProject.get();
+        }else {
+            throw new ResponseStatusException(404, "NOT_FOUND_PROJECT", new IllegalArgumentException());
+        }
+    }
+
+    public void delete(long projectId) {
+        projectRepository.deleteById(projectId);
+    }
+
 }

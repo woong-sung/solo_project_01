@@ -28,4 +28,8 @@ public class CommentService {
             throw new ResponseStatusException(404, "NOT_FOUND_PROJECT", new IllegalArgumentException());
         }
     }
+
+    public void delete(long commentId){
+        commentRepository.deleteById(commentId);
+    }
 }

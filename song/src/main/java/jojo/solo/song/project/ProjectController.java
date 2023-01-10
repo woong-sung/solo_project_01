@@ -15,4 +15,10 @@ public class ProjectController {
     public ProjectDto.Response post(@RequestBody ProjectDto.Post postDto) {
         return projectService.save(postDto);
     }
+
+    @DeleteMapping("/{project-id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable("project-id") long projectId) {
+        projectService.delete(projectId);
+    }
 }

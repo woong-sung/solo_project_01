@@ -17,4 +17,10 @@ public class CommentController {
                                     @RequestBody CommentDto.Post postDto) {
         return commentService.save(projectId, postDto);
     }
+
+    @DeleteMapping("/{comment-id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable("comment-id") Long commentId) {
+        commentService.delete(commentId);
+    }
 }
