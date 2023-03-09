@@ -1,5 +1,5 @@
 # solo_project_01
-
+감을 잃지 않기위한 연습 프로젝트
 
 ## Git commit message
 |태그|설명|
